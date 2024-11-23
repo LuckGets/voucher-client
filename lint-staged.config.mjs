@@ -7,7 +7,7 @@ const buildEslintCommand = (filenames) => {
 };
 
 const config = {
-  '*.{ts,tsx}': [buildEslintCommand, 'prettier --write'],
+  'src/**/*.{ts,tsx}': [buildEslintCommand, 'prettier --write'],
   '*.{json,css,md}': 'prettier --write',
 };
 
