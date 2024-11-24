@@ -1,0 +1,31 @@
+name: Dev CI
+
+# Event to trigger this workflow.
+on: 
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  all-cli-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the github repo 
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Installing node on the container    
+        uses: actions/setup-node@v4  
+      - name: Install dependencies
+        run: npm install --legacy-per-deps
+      - name: Run lint
+        run: npm run lint
+      - name: Run format
+        run: npm run format
+      - if: ${{github.actor != github.repository_owner}}
+        name: Run test
+        run: npm run test
+          
+
+        
