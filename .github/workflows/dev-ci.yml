@@ -18,7 +18,7 @@ jobs:
       - name: Installing node on the container    
         uses: actions/setup-node@v4  
       - name: Install dependencies
-        run: npm install --legacy-per-deps
+        run: npm install --legacy-peer-deps
       - name: Run lint
         run: npm run lint
       - name: Run format
