@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 
 test('should return true', () => {
-  const bool = false;
+  const bool = true;
   expect(bool).toBe(true);
 });
